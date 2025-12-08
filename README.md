@@ -73,3 +73,11 @@ This sprint demonstrates early progress toward a MERN-based planner application.
 ### 1️⃣ Install dependencies  
 ```bash
 npm install
+
+---
+
+## 🎥 Demo Video
+
+You can watch the Sprint 1 demo video here:
+
+👉 **https://youtu.be/LqJ_KBOMGVY**
