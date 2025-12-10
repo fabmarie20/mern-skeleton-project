@@ -1,5 +1,4 @@
 // server/express.js
-
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -27,6 +26,8 @@ app.use(helmet());
 app.use(cors());
 
 // ------------------- API Routes -------------------
+// (if you prefer, you *could* mount them under /api, but
+// to minimize changes we keep them as they were)
 app.use("/", userRoutes);
 app.use("/", authRoutes);
 app.use("/", taskRoutes);
@@ -43,18 +44,21 @@ app.use((err, req, res, next) => {
 });
 
 // ------------- Serve React build on Render --------
+
 // Figure out project root (one level above /server)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, "..");
 
-// Serve static files from client/dist
-app.use(express.static(path.join(ROOT_DIR, "client", "dist")));
+// Path to built React app
+const CLIENT_BUILD_PATH = path.join(ROOT_DIR, "client", "dist");
 
-// For any non-API route, send back index.html (SPA)
-app.get(/^\/(?!api).*/, (req, res) => {
-  res.sendFile(path.join(ROOT_DIR, "client", "dist", "index.html"));
+// Serve static files (JS, CSS, images, etc.)
+app.use(express.static(CLIENT_BUILD_PATH));
+
+// For ANY non-API route, send back index.html (SPA)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(CLIENT_BUILD_PATH, "index.html"));
 });
 
 export default app;
-
