@@ -81,3 +81,39 @@ npm install
 You can watch the Sprint 1 demo video here:
 
 👉 **https://youtu.be/LqJ_KBOMGVY**
+
+---
+
+## 🚀 Sprint 2 / Project Part 3 – Tasks API & UI
+
+This part extends the Pastel Planner MERN application with a simple **Tasks** feature.
+
+### 🔗 Backend – Tasks REST API
+
+Base URL: `http://localhost:3000/api/tasks`
+
+Implemented endpoints:
+
+- `POST /api/tasks` – Create a new task  
+- `GET /api/tasks` – Get all tasks  
+- `GET /api/tasks/:taskId` – Get a single task by id  
+- `PUT /api/tasks/:taskId` – Update an existing task  
+- `DELETE /api/tasks/:taskId` – Delete a task  
+
+Task model (simplified):
+
+- `title` (String, required)  
+- `description` (String, optional)  
+- `status` (String, enum: `"todo" | "in-progress" | "done"`, default `"todo"`)  
+
+Screenshots for these endpoints are stored in:  
+`/screenshots/part3/api/`
+
+### 🎨 Frontend – Tasks page
+
+- Added `TaskList.jsx` React component under `client/src/components`.
+- Configured React Router in `MainRouter.jsx` with route:
+
+  ```jsx
+  <Route path="/tasks" element={<TaskList />} />
+

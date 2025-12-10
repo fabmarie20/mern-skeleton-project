@@ -1,3 +1,4 @@
+import taskRoutes from "./routes/task.routes.js";
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", userRoutes);
 app.use("/", authRoutes);
+app.use("/", taskRoutes);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
