@@ -7,6 +7,7 @@ import cors from "cors";
 import helmet from "helmet";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
+import path from "path";
 
 
 const app = express();
@@ -28,6 +29,14 @@ app.use((err, req, res, next) => {
     res.status(400).json({ error: err.name + ": " + err.message });
     console.log(err);
   }
+});
+
+const CURRENT_DIR = path.resolve();
+
+app.use(express.static(path.join(CURRENT_DIR, "client", "dist")));
+
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(CURRENT_DIR, "client", "dist", "index.html"));
 });
     
 export default app;
