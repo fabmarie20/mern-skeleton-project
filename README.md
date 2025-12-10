@@ -117,3 +117,19 @@ Screenshots for these endpoints are stored in:
   ```jsx
   <Route path="/tasks" element={<TaskList />} />
 
+---
+
+## 🎥 Sprint 2 – Demo Video
+
+A full demonstration of the Tasks Feature (backend CRUD, React UI, routing, Agile tracking, and code walkthrough) is available here:
+
+👉 **[Watch Sprint 2 Demo Video on YouTube](https://youtu.be/RfjIMr6l4dk)**
+
+This video includes:
+- Project overview
+- Backend CRUD operations using Thunder Client
+- React TaskList UI demonstration
+- Routing update with `/tasks`
+- Code explanation (model, controller, routes, React component)
+- Agile workflow overview (Trello)
+- Final implementation summary
