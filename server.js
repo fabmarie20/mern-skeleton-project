@@ -1,4 +1,4 @@
-// server.js
+// server.js  (root)
 import config from "./config/config.js";
 import app from "./server/express.js";
 import mongoose from "mongoose";
@@ -17,11 +17,12 @@ mongoose
     console.error("❌ MongoDB connection error:", err.message);
   });
 
-const port = process.env.PORT || config.port || 3000;
-
-app.listen(port, (err) => {
+app.listen(config.port, (err) => {
   if (err) {
-    console.error(err);
+    return console.error(err);
   }
-  console.info(`Server started on port ${port}.`);
+  console.info("Server started on port %s.", config.port);
 });
+
+
+
