@@ -133,3 +133,6 @@ This video includes:
 - Code explanation (model, controller, routes, React component)
 - Agile workflow overview (Trello)
 - Final implementation summary
+
+## 🎥 Final Demo Video (YouTube)
+https://youtu.be/4VXeOanA6Y4
